@@ -1,0 +1,5 @@
+name: 'Spoke UID Field'
+type: module
+description: 'Assigns UID to Spoke field on node creation'
+core_version_requirement: ^10
+package: Spoke

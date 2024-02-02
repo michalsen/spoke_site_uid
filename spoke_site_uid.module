@@ -1,0 +1,22 @@
+<?php
+
+/*
+ * Implements hook_entity_presave().
+ */
+
+function spoke_site_uid_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+    // Check if the entity being saved is a node and it's being created.
+    if ($entity->getEntityTypeId() === 'node' && $entity->isNew()) {
+        
+        // Get the current user.
+        $user = \Drupal::currentUser();
+        // Get the UID of the user.
+        $uid = $user->id();
+
+    // Assign the UID to the custom field.
+    $entity->set('field_spoke_uid', $uid);
+    }
+
+}
+
